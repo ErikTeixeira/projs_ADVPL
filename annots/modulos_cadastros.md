@@ -1,6 +1,6 @@
 ## Módulos Protheus
 
-[Modulos SIGACFG + APSDU/MPSDU](annots/modulos_cadastros.md)
+[Modulos SIGACFG + APSDU/MPSDU](mod_cfg_apsdu.md)
 
 # Sumário
 
@@ -15,7 +15,7 @@
 
 - [Sequência](#sequência)
 
-### Módulo Compras - SIGACOM
+### Módulo Compras - SIGACOM - 02
 - **Produtos:** Definição técnica dos itens - MATA010 - **SB1**
 - **Fornecedores:** Cadastro dos vendedores - MATA020 - **SA2**
 - **Tipos de Entrada e Saída (TES)** - MATA080 - **SF4**
@@ -24,6 +24,15 @@
 - **Condições de Pagamento:** Prazos negociados - MATA360 - **SE4**
 - **Naturezas Financeiras:** Classificação da despesa - **SED**
 
+Para criar um pedido de compra precisa de um fornecedor(quem vende) e um cliente(quem compra)
+    - Pode vim de uma solicitação de compra o pedido
+Quando cria o pedido ele pode estar pendente e precisa liberar ele
+    - o aprovador libera - no administração de comprar tem aprovadores, tem um limite de saldo nele
+    - Para liberar - liberação de documentos - só aparece para o aprovador
+**Pedido de compra virar uma nota fiscal de entrada** - Atualizações -> Moviemntos -> Documentos de entrada ( da para gerar uma pré nota antes - diferença que não tem uma TES nela )
+- outras ações na tela do documento de entrada - pedido - escolhe o pedido - e já preenche os dados do item
+
+- **Com isso movimenta o estoque, e vai aparecer quantos foram comprados lá**
 
 ### Módulo de Faturamento - SIGAFAT
 - **Clientes** - MATA030/CRMA980(foi aterado) - **SA1**
@@ -67,7 +76,7 @@ Foca na auditoria e controle de custos de frete, **ideal para embarcadores que c
 
 - Módulo para empresas que contratam frete
 
-### Módulo OMS (Order Management System | Gestão de destribuição) - SIGAGFE - 78
+### Módulo OMS (Order Management System | Gestão de destribuição) - SIGAOMS
 **Usado antes do GFE e TMS**
 - Dedicado ao gerenciamento de pedidos, roteirização e distribuição
 - Não cria o pedido de venda - pega do módulo de vendas
@@ -75,7 +84,7 @@ Foca na auditoria e controle de custos de frete, **ideal para embarcadores que c
 Pedido -> Liberação -> Roteirização -> Montagem de carga -> Romaneio -> Retorno/Baixa da entrega
 - Liberação = Verifica crédito e estoque
 - Roteirização = Automatizar a programação de entregas
-- Montagem de carga = sleciona pedidos, validar estoque/credito, agrupar em cargas e gerar o romaneio
+- Montagem de carga = selciona pedidos, validar estoque/credito, agrupar em cargas e gerar o romaneio
 
 ---
 
