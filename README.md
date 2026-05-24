@@ -1,10 +1,18 @@
-# projs_ADVPL
-Projetos de Estudo em ADVPL - Protheus
+# 📚 projs_ADVPL
+> Projetos de Estudo em ADVPL - Protheus
 
+![ADVPL](https://img.shields.io/badge/ADVPL-Protheus-blue?style=for-the-badge)
+![Progresso](https://img.shields.io/badge/Aula-F006-green?style=for-the-badge)
+
+---
 
 ## Módulos
-### Principais - Compras, Estoque, Faturamento e Financeiro - **Quarteto**
-[Modulos](annots/modulos_cadastros.md)
 
+### 🏆 Principais — O Quarteto
+> Compras · Estoque · Faturamento · Financeiro
+
+[📄 Ver todos os módulos e cadastros](annots/modulos_cadastros.md)
+
+---
 
 assisti ate - #F006 Compras

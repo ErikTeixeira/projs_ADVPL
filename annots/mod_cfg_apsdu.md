@@ -3,6 +3,8 @@
 - SIGACFG → lógica e configuração
 - APSDU → estrutura física e correções
 
+---
+
 ### SIGACFG (Configurador)
 O que faz:
 - Dicionário de dados (SX2, SX3, SX5, SX6…)
@@ -10,6 +12,8 @@ O que faz:
 - Criação/alteração de campos
 - Controle de menus e permissões
 - Base estrutural de todos os módulos
+
+---
 
 ### APSDU/MPSDU (Administrador de Banco / Dicionário)
 O que faz:
