@@ -25,6 +25,12 @@
 | Tipos de Entrada e Saída (TES) | MATA080 | **SF4** |
 | Condições de Pagamento - Prazos negociados | MATA360 | **SE4** |
 | Naturezas Financeiras - Classificação da despesa | — | **SED** |
+
+- Pedido de compra - faz um documento de entrada - gera um contas a pagar
+- Pedido de venda - faz um documento de saída - gera um contas a receber
+
+- Condições de Pagamento
+  - Se for uma que parcela em mais de uma vez gera mais de um título, exemplo ```30 e 60 dias``` - duplicatas
  
 - **Tipos de Entrada e Saída (TES)**
     - <u>000 a 500 são para Entradas</u> (compras, devoluções de vendas, recebimentos).
@@ -42,7 +48,7 @@
 
 ---
 
-### Módulo de Faturamento - SIGAFAT
+### Módulo de Faturamento - SIGAFAT - 05
  Cadastro | Rotina | Tabela |
 |---|---|---|
 | Clientes | MATA030 / CRMA980 (foi alterado) | **SA1** |
@@ -55,16 +61,27 @@
 | Pedidos de Venda | — | **SC5** (Cabeçalho) e **SC6** (Itens) |
 | Pedidos Liberados | MATA460A | **SC9** |
 
+- Nota fiscal de saída
+  - Atualizações - Faturamento - Documento de saída 
+
 ---
 
-### Módulo de Gestão Financeira - SIGAFIN
+### Módulo de Gestão Financeira - SIGAFIN - 06
 Controle integral de contas a pagar, contas a receber, tesouraria, fluxo de caixa e conciliação bancária
-- **Contas a Receber** - FINA040 - Permite incluir, alterar e baixar títulos gerados pelo faturamento (notas fiscais) ou manualmente
-- **Contas a Pagar** - FINA050 - Gerencia pagamentos a fornecedores, naturezas de despesa e inclui títulos manualmente.
+- **Contas a Receber** - FINA040 - Permite incluir, alterar e baixar títulos gerados pelo faturamento (notas fiscais) ou manualmente - **SE1**
+  - **Referente as notas ficais de saída**
+  - Da para fazer a baixa completa ou parcial
+  - Se cancelar a baixa e para voltar o saldo
+
+- **Contas a Pagar** - FINA050 - Gerencia pagamentos a fornecedores, naturezas de despesa e inclui títulos manualmente - **SE2** - campo E2_SALDO fica zerado quando ele está baixado
+  - **Referente as notas ficais de entrada**
+  - Da para fazer a baixa, e fica quitado
+  - Baixa parcial - não baixa todo o valor
+  - Baixa manual - da para cancelar a baixa
 
 ---
 
-### Módulo de Estoque e Custos - SIGAEST 
+### Módulo de Estoque e Custos - SIGAEST - 04
 > Pilar central para gerenciar inventários, armazenagem e custos de produtos
 Controla entradas, saídas, transferências, saldos físicos e financeiros, além de calcular o custo médio e realizar o inventário.
 É <u>integrado com Faturamento, Compras e Financeiro</u>
@@ -74,7 +91,15 @@ Controla entradas, saídas, transferências, saldos físicos e financeiros, alé
 | Produtos | **SB1** |
 | Grupo de Produtos | — |
 | Unidades de Medida | — |
-| Locais de Estoque | **SB2** |
+| Locais de Estoque | **SB2** | 
+
+SB2 - armazena os saldos dos produtos
+
+- FIFO - First In, First Out - O primeiro a entrar é o primeiro a sair
+- LIFO - Last In, First Out - O último a entrar é o primeiro a sair
+
+- Relatório KARDEX - consegue ver as entradas e saídas, produtos ...
+- Consultas - cadastro - genérico
 
 ---
 
