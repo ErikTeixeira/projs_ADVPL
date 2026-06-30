@@ -61,6 +61,15 @@
 | Pedidos de Venda | — | **SC5** (Cabeçalho) e **SC6** (Itens) |
 | Pedidos Liberados | MATA460A | **SC9** |
 
+- Tem os pedidos de venda - da para criar por um orçamento ou direto
+  - Precisa ter um cliente cadastrado com natureza nele
+  - No preenchimento do produto precisa do Tipo de Saída - **TES** - dita coisas que acontecem no sistema (Ex: se movimenta estoque, se movimento o financeiro...), e diz se é uma operação de venda ou de compra
+    - 001 até a 500 = operações de entrada  |  501 até 999 = operações de saída
+  - Tem liberadores - quem libera o pedido, e precisa liberar o crédito para poder faturar
+  - Pedido de venda -> outras ações -> Preparar doc saída -> Gera uma nota fiscal
+- Cadastro de vendedores, e as comissões
+  - No protheus pode ter até 5 vendedores para uma venda
+- NF-e e Nfs-e -> Nf-e Sefaz (para produto) -> aparece aqui (precisa estar configurado)
 - Nota fiscal de saída
   - Atualizações - Faturamento - Documento de saída 
 
@@ -68,16 +77,24 @@
 
 ### Módulo de Gestão Financeira - SIGAFIN - 06
 Controle integral de contas a pagar, contas a receber, tesouraria, fluxo de caixa e conciliação bancária
+- Trata de saldos bancários
+- Atualizações -> Movimento bancario - mostra a movimentação bancaria da empresa de entrada e saída que houve baixa
+
+**Quando compra vc fica devendo(Contas a pagar) e quando vende fica tendo recebimento(Contas a receber)**
 - **Contas a Receber** - FINA040 - Permite incluir, alterar e baixar títulos gerados pelo faturamento (notas fiscais) ou manualmente - **SE1**
   - **Referente as notas ficais de saída**
   - Da para fazer a baixa completa ou parcial
   - Se cancelar a baixa e para voltar o saldo
+
+  - Tem os títulos - as vendas que foram feitas - **se a condição de pagamento tem mais de uma parcela vai aparecer dois títulos aqui**
 
 - **Contas a Pagar** - FINA050 - Gerencia pagamentos a fornecedores, naturezas de despesa e inclui títulos manualmente - **SE2** - campo E2_SALDO fica zerado quando ele está baixado
   - **Referente as notas ficais de entrada**
   - Da para fazer a baixa, e fica quitado
   - Baixa parcial - não baixa todo o valor
   - Baixa manual - da para cancelar a baixa
+
+  - Tem os títulos - as comprar feitas
 
 ---
 
