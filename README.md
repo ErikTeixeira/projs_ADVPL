@@ -15,4 +15,4 @@
 
 ---
 
-assisti ate - #F011 Financeiro
+assisti ate - #F014 - debug
