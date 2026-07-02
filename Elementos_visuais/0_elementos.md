@@ -29,6 +29,19 @@ Classe utilizada para **definir a aparência do texto** dos componentes visuais.
 
 ---
 
+### TDialog  - [TFont](tDialog/tDialog.md)
+
+Janela principal da aplicação
+- Criado com `TDialog():New()`.
+- Todos os componentes pertencem ao `TDialog`.
+- `Activate()` → Exibe a janela.
+- `End()` → Fecha a janela.
+- `hasFocus()` → Verifica se está em foco.
+- `windowState()` → Informa o estado da janela.
+- `SetPopup()` → Define o menu de contexto.
+
+---
+
 
 
 

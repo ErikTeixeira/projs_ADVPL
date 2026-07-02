@@ -1,0 +1,23 @@
+#include 'totvs.ch'
+#include 'protheus.ch'
+
+
+/*/{Protheus.doc} ztDialog
+exemplo tDialog
+@type user function
+@author user
+@since 02/07/2026
+@version 24.10
+/*/
+User Function ztDialog()
+
+    Local oDlg1
+
+    // cordenadas da janela é por pixel
+
+    oDlg1 := TDialog():New(180, 180, 550, 700, 'Exemplo TDialog', , , , , , /*nCorFundo*/, , , .T.)
+ 
+    //Ativa e exibe a janela
+    oDlg1:Activate(,,,)
+
+Return
