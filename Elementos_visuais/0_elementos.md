@@ -29,7 +29,7 @@ Classe utilizada para **definir a aparência do texto** dos componentes visuais.
 
 ---
 
-### TDialog  - [TFont](tDialog/tDialog.md)
+### TDialog  - [TDialog](tDialog/tDialog.md)
 
 Janela principal da aplicação
 - Criado com `TDialog():New()`.
@@ -42,8 +42,31 @@ Janela principal da aplicação
 
 ---
 
+### TFolder  - [TFolder](tFolder/tFolder.md)
+
+Cria um painel com abas dentro da janela.
+
+- Criado com `TFolder():New()`
+- Cada aba possui um diálogo próprio em `aDialogs`.
+- Os componentes de cada aba devem usar `oTFolder:aDialogs[n]` como pai, e **não** o `oDlg`.
+- As abas começam no índice **1** (`aDialogs[1]`, `aDialogs[2]`, ...).
 
 
+---
 
+### TComboBox  - [TComboBox](tComboBox/tComboBox.md)
 
+Cria um objeto do tipo caixa de seleção (ComboBox)
+- Criado com `TComboBox():New()`
+- As opções são passadas em um **array** (`aItems`)
+- É possível passar um função nele e o que ele fazer quando a função rodar
+  - Dentro da função você pode:
+    - Validar a escolha.
+    - Alterar outros componentes.
+    - Habilitar/desabilitar botões.
+    - Mostrar mensagens.
+    - Buscar dados no banco.
+    - Atualizar campos da tela.
+
+---
 

@@ -1,0 +1,32 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+
+/*/{Protheus.doc} zTComboBox
+(long_description)
+@type user function
+@author user
+@since 03/07/2026
+@version 24.10
+/*/
+User Function zTComboBox()
+
+    Local oDlg1
+    Local aOpcoes := {'Opcao 1', 'Opcao 2', 'Opcao 3', 'Opcao 4'}
+    Local cOpcao := aOpcoes[1]
+    Local oCombo1
+    
+    Local oButton1
+
+    oDlg1       := TDialog():New(0, 0, 500, 500, 'EPainel de Abas', , , , , , /*nCorFundo*/, , , .T.)
+
+    oCombo1 := TComboBox():New(10,10,{|u|if(PCount()>0,cOpcao:=u,cOpcao)},;
+        aOpcoes,70,20,oDlg1,,{||Alert('Mudou item da combo' + cOpcao)};
+        ,,,,.T.,,,,,,,,,'cOpcao')
+
+    oButton1    := TButton():New(10,100, "Mostrar Escolha", oDlg1, { || MsgInfo(cOpcao, "Conteúdo do TComboBox") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oDlg1:Activate(,,,.T.)
+
+Return 

@@ -1,0 +1,81 @@
+#include 'totvs.ch'
+#include 'protheus.ch'
+
+
+/*/{Protheus.doc} zTFolder
+@type function
+@author Erik
+@since 02/07/2026
+@version 24.10
+/*/
+User Function zTFolder()
+
+    Local oTFolder
+    Local aFolder
+    Local oDlg1
+    Local cTGet1, cTGet2, cTGet3, cTGet4
+    Local oTGet1, oTGet2, oTGet3, oTGet4
+    Local cSay1, cSay2, cSay3, cSay4
+    Local oSay1, oSay2, oSay3, oSay4
+    Local oButton1, oButton2, oButton3, oButton4
+
+    oDlg1 := TDialog():New(0, 0, 300, 400, 'EPainel de Abas', , , , , , /*nCorFundo*/, , , .T.)
+
+    aFolder := {'Aba01','Aba02','Aba03','Aba04'}
+
+    oTFolder := TFolder():New( 0,0,aFolder,aFolder,oDlg1,,,,.T.,,200,200 )
+
+    // Insere um TSay e um TGet em cada aba da folder
+
+    // aba 1
+
+    cSay1       := "Nome aba 1"
+    oSay1       := TSay():New(01, 01, {|| cSay1}, oTFolder:aDialogs[1], ;
+        /*cPicture*/, , , , , , /*nClrText*/, /*nClrBack*/, , , , , , , , .T.)
+
+    cTGet1      := space(30)
+    oTGet1      := TGet():New( 10,01,{|u| IIF(Pcount()>0, cTGet1:=u, cTGet1) },oTFolder:aDialogs[1],096,009,;
+        "",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet1,,,, )
+
+    oButton1    := TButton():New(25,10, "Executar", oTFolder:aDialogs[1], { || MsgInfo(cTGet1, "Conteúdo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    // aba 2
+
+    cSay2       := "Nome aba 2"
+    oSay2       := TSay():New(01, 01, {|| cSay2}, oTFolder:aDialogs[2], ;
+        /*cPicture*/, , , , , , /*nClrText*/, /*nClrBack*/, , , , , , , , .T.)
+
+    cTGet2      := space(30)
+    oTGet2      := TGet():New( 10,01,{|u| IIF(Pcount()>0, cTGet2:=u, cTGet2) },oTFolder:aDialogs[2],096,009,;
+        "",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet2,,,, )
+
+    oButton2    := TButton():New(25,10, "Executar", oTFolder:aDialogs[2], { || MsgInfo(cTGet2, "Conteúdo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    // aba 3
+
+    cSay3       := "Nome aba 3"
+    oSay3       := TSay():New(01, 01, {|| cSay3}, oTFolder:aDialogs[3], ;
+        /*cPicture*/, , , , , , /*nClrText*/, /*nClrBack*/, , , , , , , , .T.)
+
+    cTGet3      := space(30)
+    oTGet3      := TGet():New( 10,01,{|u| IIF(Pcount()>0, cTGet3:=u, cTGet3) },oTFolder:aDialogs[3],096,009,;
+        "",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet3,,,, )
+
+    oButton3 := TButton():New(25,10, "Executar", oTFolder:aDialogs[3], { || MsgInfo(cTGet3, "Conteúdo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    // aba 4
+
+    cSay4       := "Nome aba 4"
+    oSay4       := TSay():New(01, 01, {|| cSay4}, oTFolder:aDialogs[4], ;
+        /*cPicture*/, , , , , , /*nClrText*/, /*nClrBack*/, , , , , , , , .T.)
+    
+    cTGet4      := space(30)
+    oTGet4      := TGet():New( 10,01,{|u| IIF(Pcount()>0, cTGet4:=u, cTGet4) },oTFolder:aDialogs[4],096,009,;
+        "",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet4,,,, )
+
+    oButton4    := TButton():New(25,10, "Executar", oTFolder:aDialogs[4], { || MsgInfo(cTGet4, "Conteúdo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+
+    oDlg1:Activate(,,,.T.)
+Return 
