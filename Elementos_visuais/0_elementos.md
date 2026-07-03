@@ -58,6 +58,7 @@ Cria um painel com abas dentro da janela.
 
 Cria um objeto do tipo caixa de seleção (ComboBox)
 - Criado com `TComboBox():New()`
+- Pega a posição do item pelo **índice de caracter** dele
 - As opções são passadas em um **array** (`aItems`)
 - É possível passar um função nele e o que ele fazer quando a função rodar
   - Dentro da função você pode:
@@ -69,4 +70,23 @@ Cria um objeto do tipo caixa de seleção (ComboBox)
     - Atualizar campos da tela.
 
 ---
+
+### TListBox  - [TListBox](tListBox/tListBox.md)
+
+Cria um objeto do tipo lista de itens com barra de rolagem
+- Criado com `TListBox():New()`
+- Pega a posição do item pelo **índice numérico** dele - **lembre que começa em 1**
+- As opções são passadas em um **array** (`aItems`)
+- É possível passar um função nele e o que ele fazer quando a função rodar
+  - Dentro da função você pode:
+    - Validar a escolha.
+    - Alterar outros componentes.
+    - Habilitar/desabilitar botões.
+    - Mostrar mensagens.
+    - Buscar dados no banco.
+    - Atualizar campos da tela.
+- ``oListBox1:Change(|| ...)``
+
+---
+
 

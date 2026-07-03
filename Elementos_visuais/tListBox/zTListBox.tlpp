@@ -1,0 +1,33 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+/*/{Protheus.doc} zTComboBox
+zTComboBox
+@type function
+@version 24.10
+@author erikt
+@since 03/07/2026
+/*/
+user function zTComboBox
+
+    Local oDlg1
+    Local aOpcoes := {'Opcao 1', 'Opcao 2', 'Opcao 3', 'Opcao 4'}
+    Local nOpcao := 1
+    Local oListBox1
+    
+    Local oButton1
+
+    oDlg1       := TDialog():New(0, 0, 400, 400, 'Painel de Listas', , , , , , /*nCorFundo*/, , , .T.)
+
+    oListBox1   := TListBox():New(001,001,{|u|if(Pcount()>0,nOpcao:=u,nOpcao)},aOpcoes,70,100,;
+                        {||Alert("Mudou de linha " + aOpcoes[nOpcao])},oDlg1,,,,.T.)
+
+    // ou usar o change() para fazer o mesmo
+    oListBox1:Change({||Alert("Mudou de linha para o item -> " + aOpcoes[nOpcao])})
+
+    oButton1    := TButton():New(10,100, "Mostrar Escolha", oDlg1, { || MsgInfo(cOpcao, "Contudo do TComboBox") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oDlg1:Activate(,,,.T.)
+
+return
