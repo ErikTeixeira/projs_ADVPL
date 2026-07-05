@@ -89,4 +89,32 @@ Cria um objeto do tipo lista de itens com barra de rolagem
 
 ---
 
+### TRadMenu / botão radio (bolinha de escolha)  - [TRadMenu](tRadMenu/tRadMenu.md) 
+
+Cria um objeto do tipo Radio Button (elemento de seleção de única escolha)
+- Criado com ``TRadMenu():New()``
+
+---
+
+### TGet  - [TGet](tGet/tGet.md) 
+
+Cria um objeto para entrada de dados editáveis
+- Criado com ``TGet:New()``
+- Permite entrada e edição de dados.
+- **Atualiza a variável somente quando perde o foco.**
+- Pode ser associado a uma variável.
+- Aceita diversos tipos de dados (texto, numérico, data, lógico, etc.), conforme a configuração.
+- Pode utilizar máscaras e formatações para restringir a entrada de dados
+
+---
+
+### TSay  - [TSay](tSay/tSay.md) 
+
+Cria um objeto do tipo label. 
+  Desta forma, o objeto apresentará o conteúdo do texto estático sobre uma janela ou controle visual.
+- Criado com ``TSay:New()``
+- **Da para utilizar html no TSay**
+- ``oSay:CtrlRefresh()`` - Força a atualização do objeto
+
+---
 

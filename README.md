@@ -34,7 +34,9 @@
 
 ---
 
-assisti ate - #F025 Construindo tela com Lista TListBox
+Estou no #F027 - tget
+
+porem fui para o #F034 - tsay - para ver antes do tget
 
 
 

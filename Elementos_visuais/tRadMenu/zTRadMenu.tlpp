@@ -1,0 +1,28 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+/*/{Protheus.doc} zTRadMenu
+zTRadMenu
+@type user function
+@author user
+@since 05/07/2026
+@version 24.10
+/*/
+User Function zTRadMenu()
+
+    Local oDlg1
+    Local aOpcoes := {'Opcao 1', 'Opcao 2', 'Opcao 3', 'Opcao 4'}
+    Local nOpcao := 1
+    Local oRadMenu
+    Local oButton1
+
+    oDlg1 := TRadMenu():New(0,0,400,400,'RadMenu',,,,,.T.,.F.,.F.,.F.,.F.)
+
+        // pegar a posição do item - {|u| iif(pCount()>0, nOpcao := u, nOpcao )}
+    oRadMenu := TRadMenu():New(10,10, aOpcoes, {|u| iif(pCount()>0, nOpcao := u, nOpcao )}, oDlg1,,,,,,,,100,20,,,,.T.)
+
+    oButton1 := TButton():New(80,10, "Mostrar Escolha", oDlg1, { || MsgInfo( aOpcoes[nOpcao] , "Contudo do TRadMenu") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oDlg1:Activate()
+
+Return
