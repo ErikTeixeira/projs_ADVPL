@@ -34,9 +34,10 @@
 
 ---
 
-Estou no #F027 - tget
+assisti ate o #F027 Criando caixa de texto TGet - Parte 1
 
-porem fui para o #F034 - tsay - para ver antes do tget
+
+e assisti - #F034 Criando um rótulo TSay
 
 
 

@@ -11,14 +11,39 @@ TGet
 user function zTGet
 
     Local oDlg1
-    Local oButton1
-    Local oGet
+    Local oButton1, oButton2, oButton3, oButton4
+    Local oSay1, oSay2, oSay3
+    Local oGet1, oGet2, oGet3
+    Local cTGet1, cTGet2, cTGet3
 
-    oDlg1 := TDialog():New(0, 0, 400, 400, 'Exemplo TGet', , , , , , /*nCorFundo*/, , , .T.)
+    oDlg1 := TDialog():New(0, 10, 500, 500, 'Exemplo TGet', , , , , , /*nCorFundo*/, , , .T.)
+
+    oSay1    := TSay():New(04,01,{||'Nome'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+
+    cTGet1 := space(30)
+    oGet1 := TGet():New( 20,01,{|u| IIF(PCount()>0,cTGet1:=u,cTGet1) },oDlg,60,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet1,,,, )
+
+    oButton1 := TButton():New(60,01, "Nome Digitado", oDlg1, { || MsgInfo(cTGet1, "Contudo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
 
 
-    oButton1 := TButton():New(80,10, "Executar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+    oSay2    := TSay():New(04,70,{||'Endereço'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
 
-    oDlg1:Activate()
+    cTGet2 := space(30)
+    oGet2 := TGet():New( 20,70,{|u| IIF(PCount()>0,cTGet2:=u,cTGet2) },oDlg,060,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet2,,,, )
+
+    oButton2 := TButton():New(60,70, "Endereço Digitado", oDlg1, { || MsgInfo(cTGet2, "Contudo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oSay3    := TSay():New(04,140,{||'Cidade'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+
+    cTGet3 := space(30)
+    oGet3 := TGet():New( 20,140,{|u| IIF(PCount()>0,cTGet3:=u,cTGet3) },oDlg,060,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet3,,,, )
+
+    oButton3 := TButton():New(60,170, "Cidade Digitada", oDlg1, { || MsgInfo( cTGet3, "Contudo do TGet") }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oButton4 := TButton():New(80,10, "Fechar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oDlg1:Activate(,,,.F.)
 
 return

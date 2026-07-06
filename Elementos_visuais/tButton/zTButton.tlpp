@@ -1,0 +1,31 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+/*/{Protheus.doc} zTButton
+TGet
+@type function
+@version  24.10
+@author erikt
+@since 06/07/2026
+/*/
+user function zTButton
+
+    Local oDlg1
+    Local oButton1, oButton2, oButton3, oButton4, oButton5
+    Local oSay
+
+    oDlg1   := TDialog():New(0, 0, 400, 400, 'Exemplo TButton', , , , , , /*nCorFundo*/, , , .T.)
+
+    oSay    := TSay():New(05,50,{||'Texto para exibição'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+
+    oButton1 := TButton():New(50,10, "Fechar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oButton2 := TButton():New(60,10, "Clientes", oDlg1, { || Mata030() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+    oButton3 := TButton():New(70,10, "Fornecedores", oDlg1, { || Mata020() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+    oButton4 := TButton():New(80,10, "Bancos", oDlg1, { || Mata070() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+    oButton5 := TButton():New(90,10, "Produtos", oDlg1, { || Mata010() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oDlg1:Activate()
+
+return
+

@@ -14,9 +14,9 @@ user function zTGet
     Local oButton1
     Local oSay
 
-    oDlg1   := TDialog():New(0, 0, 400, 400, 'Exemplo TGet', , , , , , /*nCorFundo*/, , , .T.)
+    oDlg1   := TDialog():New(0, 0, 400, 400, 'Exemplo TSay', , , , , , /*nCorFundo*/, , , .T.)
 
-    oSay    := TSay():New(01,01,{||'Texto para exibição'},oDlg1,,oFont,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+    oSay    := TSay():New(05,50,{||'Texto para exibição'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
 
     oButton1 := TButton():New(80,10, "Executar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
 
@@ -24,5 +24,3 @@ user function zTGet
 
 return
 
-
-min 2:34

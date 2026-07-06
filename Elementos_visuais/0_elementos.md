@@ -1,5 +1,17 @@
 ## Elementos visuais protheus ADVPL
 
+- **Pega o que está sendo digitado/escolhido em um elemento  ``{|u| IIF(PCount()>0,cTGet1:=u,cTGet1) }`` 
+``oGet1 := TGet():New( 20,01,{|u| IIF(PCount()>0,cTGet1:=u,cTGet1) },oDlg,096,009,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cTGet1,,,, )``**
+
+
+- **Redimensio a tela automaticamente** - `MsAdvsize()`
+  ```
+  Local aSize := MsAdvsize()
+  Local oDlg1
+  oDlg1 := TDialog():New(aSize[7]aSize[1],aSize[6],aSize[5], 'Exemplo MsAdvsize', , , , , , /*nCorFundo*/, , , .T.)
+  ```
+
+
 ### TGroup - [TGroup](tGroup/TGroup.md)
 Container visual utilizado para **agrupar componentes relacionados** dentro de uma janela
 - O `TGroup` **não armazena dados**.
@@ -100,10 +112,13 @@ Cria um objeto do tipo Radio Button (elemento de seleção de única escolha)
 
 Cria um objeto para entrada de dados editáveis
 - Criado com ``TGet:New()``
+- Para cada variável oTGet precisa de uma cGet, nGet... sendo a que vai guardar o valor nela
 - Permite entrada e edição de dados.
+  - Lembrar de iniciar a variável - `Local cGet1 := space(20)`
 - **Atualiza a variável somente quando perde o foco.**
 - Pode ser associado a uma variável.
 - Aceita diversos tipos de dados (texto, numérico, data, lógico, etc.), conforme a configuração.
+  - [Pictures](../annots/pictures.md) 
 - Pode utilizar máscaras e formatações para restringir a entrada de dados
 
 ---
@@ -117,4 +132,6 @@ Cria um objeto do tipo label.
 - ``oSay:CtrlRefresh()`` - Força a atualização do objeto
 
 ---
+
+
 
