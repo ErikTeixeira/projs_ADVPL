@@ -123,6 +123,17 @@ Cria um objeto para entrada de dados editáveis
 
 ---
 
+### TCheckBox  - [TCheckBox](tCheckBox/tCheckBox.md) 
+
+Cria um objeto do tipo caixa de seleção (CheckBox)
+- Criado com ``TCheckBox:New()``
+- Tem uma variável lógica que acompanha o TCheckBox - `lCheck1` - para saber se está marcado
+- E **passar no nono parâmetro o método para o lCheck atualizar** quando for selecionado
+  - `{|| lCheck1 := !lCheck1}`
+- ``oCheck:CtrlRefresh()`` - Atualiza as informações do objeto
+
+---
+
 ### TSay  - [TSay](tSay/tSay.md) 
 
 Cria um objeto do tipo label. 

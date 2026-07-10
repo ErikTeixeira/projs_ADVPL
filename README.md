@@ -34,6 +34,29 @@
 
 ---
 
+### Operadores Lógicos
+Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
+
+| Operador | Descrição   |
+|-----------|------------|
+.And.	    | E lógico
+.Or.	    | OU lógico
+.Not. ou !	| NÃO lógico
+
+
+---
+
+### IMPORTANTE
+
+``Private lCheck1, lCheck2, lCheck3 := .F.``
+
+-  quando você declara várias variáveis na mesma linha com Private, o := só se aplica à última variável da lista. Isso significa que:
+
+    - lCheck3 recebe .F.
+    - lCheck1 e lCheck2 ficam como NIL (não inicializadas), não como .F.
+
+---
+
 assisti ate o #F027 Criando caixa de texto TGet - Parte 1
 
 

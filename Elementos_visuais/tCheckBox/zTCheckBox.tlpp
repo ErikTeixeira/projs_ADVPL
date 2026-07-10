@@ -1,0 +1,108 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+/*/{Protheus.doc} zTComboBox
+zTComboBox
+@type function
+@version  24,10
+@author erikt
+@since 06/07/2026
+/*/
+user function zTComboBox
+
+    Local oDlg1
+    Local oButton1, oButton2, oButton3, oButton4
+    // variavel logica - que verifica se o checkbox foi marcado
+    // .F.  - inicia desmarcado
+    Private oCheck1, oCheck2, oCheck3
+    Private lCheck1 := .F.
+    Private lCheck2 := .F.
+    Private lCheck3 := .F.
+
+    oDlg1 := TDialog():New(0, 10, 400, 400, 'Exemplo TCheckBox', , , , , , /*nCorFundo*/, , , .T.)
+
+        // método na linha
+    oCheck1 := TCheckBox():New(01,01,'CheckBox 001', {|u| IIF(PCount()==0, lCheck1, lCheck1 := u)} ,oDlg1,100,210,, ,,,,,,.T.,,,)
+
+    oCheck2 := TCheckBox():New(11,01,'CheckBox 002', {|| lCheck2} ,oDlg1,100,210,, {|| lCheck2 := !lCheck2} ,,,,,,.T.,,,)
+
+        // método sendo chamado
+    oCheck3 := TCheckBox():New(21,01,'CheckBox 003',,oDlg1,100,210,, ,,,,,,.T.,,,)
+    oCheck3:bSetGet := {||lCheck3}
+        // toda vez que clicar no checkbox a variavel lCheck3 será alterada
+    oCheck3:bLClicked := {||lCheck3 := !lCheck3, IIF(lCheck3,MsgInfo("Marcado", "Status"),MsgInfo("Desmarcado", "Status"))}
+
+
+    // Usando Create
+    // oCheck6 := TCheckBox():Create( oDlg1,,61,01,'CheckBox 006',100,210,,,,,,,,.T.,'CheckBox 006',,)
+    // oCheck7 := TCheckBox():Create( oDlg1,,71,01,'CheckBox 007',100,210,,,,,,,,.T.,'CheckBox 007',,)
+
+
+    oButton1 := TButton():New(40,10, "Mostrar Escolha", oDlg1, { || CheckOptions() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oButton2 := TButton():New(60,10, "Marcar Todos", oDlg1, { || CheckAll() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oButton3 := TButton():New(80,10, "Desmarcar Todos", oDlg1, { || CheckNone() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oButton4 := TButton():New(130,10, "Fechar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oDlg1:Activate()
+
+return
+
+
+/*/{Protheus.doc} CheckOptions
+    CheckOptions
+    @type Function
+    @author Erik
+    @since 07/07/2026
+    @version 24.10
+/*/
+Static Function CheckOptions()
+    
+    IF lCheck1 .AND. lCheck2 = .F. .AND. lCheck3 = .F.
+        MsgInfo("Somente o Check 1 está marcado", "Contudo do TCheckBox")
+    ELSEIF !lCheck1 .AND. lCheck2 .AND. !lCheck3
+        MsgInfo("Somente o Check 2 está marcado", "Contudo do TCheckBox")
+    ELSEIF !lCheck1 .AND. !lCheck2 .AND. lCheck3
+        MsgInfo("Somente o Check 3 está marcado", "Contudo do TCheckBox")
+    ELSEIF lCheck1 .AND. lCheck2 .AND. lCheck3
+        MsgInfo("Todos os Checks estão marcados", "Contudo do TCheckBox")
+    ELSEIF lCheck1 .AND. lCheck2 .AND. !lCheck3
+        MsgInfo("Os Checks 1 e 2 está marcados", "Contudo do TCheckBox")
+    ELSEIF !lCheck1 .AND. lCheck2 .AND. lCheck3
+        MsgInfo("Os Checks 2 e 3 está marcados", "Contudo do TCheckBox")
+    ELSEIF lCheck1 .AND. !lCheck2 .AND. lCheck3
+        MsgInfo("Os Checks 1 e 3 está marcados", "Contudo do TCheckBox")
+    ELSE 
+        MsgInfo("Nenhum Check está marcado", "Contudo do TCheckBox")
+    ENDIF
+
+Return 
+
+
+Static Function CheckAll() 
+
+    lCheck1 := .T.
+    lCheck2 := .T.
+    lCheck3 := .T.
+
+    oCheck1:CtrlRefresh()
+    oCheck2:CtrlRefresh()
+    oCheck3:CtrlRefresh()
+
+Return
+
+
+Static Function CheckNone()
+
+    lCheck1 := .F.
+    lCheck2 := .F.
+    lCheck3 := .F.
+
+    oCheck1:CtrlRefresh()
+    oCheck2:CtrlRefresh()
+    oCheck3:CtrlRefresh()
+
+Return
