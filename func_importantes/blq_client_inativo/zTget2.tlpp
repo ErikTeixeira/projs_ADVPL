@@ -1,0 +1,91 @@
+#include "totvs.ch"
+#include "protheus.ch"
+
+
+/*/{Protheus.doc} zTGet2
+TGet
+@type function
+@version  24.10
+@author erikt
+@since 11/07/2026
+/*/
+user function zTGet2
+
+    Local oDlg1
+    Local oButton1, oButton2
+    Local oSay1, oSay2
+    Local oGet1, oGet2
+    Local cGet1 := space(6)
+    Local cGet2 := space(2)
+
+
+    oDlg1       := TDialog():New(0, 0, 200, 500, 'Bloquear Cliente', , , , , , /*nCorFundo*/, , , .T.)
+
+    oSay1       := TSay():New(10,01,{||'Cliente'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+
+    oGet1       := TGet():New( 25,01,{|u| IIF(PCount()>0,cGet1:=u,cGet1) },oDlg,40,010,"@9",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+    oGet1:cF3   := "SA1"
+
+
+    oSay2       := TSay():New(10,60,{||'Loja'},oDlg1,,,,,,.T.,CLR_RED,CLR_WHITE,200,20)
+    oGet2       := TGet():New( 25,60,{|u| IIF(PCount()>0,cGet2:=u,cGet2) },oDlg,30,010,"@9",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet2,,,, )
+
+
+
+    oButton1    := TButton():New(70,10, "Bloquear", oDlg1, { || fBloq(cGet1,cGet2) }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oButton2    := TButton():New(70,90, "Desbloquear", oDlg1, { || fUnBloq(cGet1,cGet2) }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oDlg1:Activate(,,,.T.)
+
+return
+
+
+/*/{Protheus.doc} fBloq
+fBloq
+@type function
+@version  24.10
+@author erikt
+@since 11/07/2026
+/*/
+Static Function fBloq( cCod, cLoja )
+    
+    DBSelectArea("SA1")
+
+    // por padrão pega o dbSetOrder(1)
+
+        // procura o cliente e a loja que está no get
+    SA1->(DbSeek( xFilial("SA1")+cCod+cLoja ))
+
+    RecLock("SA1",.F.)  // true = inclusão e false para alteração
+
+        SA1->A1_MSBLQL := '1'
+
+    MsUnlock()
+
+    MsgInfo("Cliente "+cCod + " da loja "+ cLoja+" Bloqueado", "Bloquear Cliente")
+
+Return 
+
+
+/*/{Protheus.doc} fUnBloq
+fUnBloq
+@type function
+@version  24.10
+@author erikt
+@since 11/07/2026
+/*/
+Static Function fUnBloq( cCod, cLoja )
+    
+    DBSelectArea("SA1")
+    SA1->(DbSeek( xFilial("SA1")+cCod+cLoja ))
+
+    RecLock("SA1",.F.)  // true = inclusão e false para alteração
+
+        SA1->A1_MSBLQL := '2'
+
+    MsUnlock()
+
+    MsgInfo("Cliente "+cCod + " da loja "+ cLoja+" Desbloqueado", "Desbloquear Cliente")
+
+Return 

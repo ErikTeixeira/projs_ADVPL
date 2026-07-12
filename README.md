@@ -55,6 +55,10 @@ Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
     - lCheck3 recebe .F.
     - lCheck1 e lCheck2 ficam como NIL (não inicializadas), não como .F.
 
+
+- **TGet:cF3**
+  - **Consulta padrão** - busca automática na tabela do protheus, coloca `SA1` e aparece todos os clientes para escolher
+
 ---
 
 assisti ate o #F027 Criando caixa de texto TGet - Parte 1

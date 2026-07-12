@@ -5,6 +5,7 @@
 
 
 - **Redimensio a tela automaticamente** - `MsAdvsize()`
+  - Pega as cordenadas dos pixels da tela automaticamente, sendo que cada pc é diferente
   ```
   Local aSize := MsAdvsize()
   Local oDlg1
@@ -112,6 +113,8 @@ Cria um objeto do tipo Radio Button (elemento de seleção de única escolha)
 
 Cria um objeto para entrada de dados editáveis
 - Criado com ``TGet:New()``
+- **TGet:cF3**
+  - **Consulta padrão** - busca automática na tabela do protheus, coloca `SA1` e aparece todos os clientes para escolher
 - Para cada variável oTGet precisa de uma cGet, nGet... sendo a que vai guardar o valor nela
 - Permite entrada e edição de dados.
   - Lembrar de iniciar a variável - `Local cGet1 := space(20)`
