@@ -147,5 +147,20 @@ Cria um objeto do tipo label.
 
 ---
 
+### TButton  - [TButton](tButton/tButton.md) 
+
+Cria um botão para executar uma ação ao ser clicado.
+- Criado com `TButton:New()` ou `TButton:Create()`
+- **TButton:bAction**
+  - Bloco de código executado ao clicar no botão.
+  - Exemplo: `{|| Alert("Botão clicado") }`
+- **TButton:lProcessing**
+  - Quando `.T.`, impede a execução do `bAction`.
+- O botão precisa estar associado a uma janela ou diálogo (`oDlg`).
+- O texto exibido no botão é definido pelo parâmetro `cCaption`.
+- O evento do botão também pode ser disparado por código utilizando `TButton:Click()`.
+- Pode receber um menu de contexto através de `TButton:SetPopupMenu()`.
+
+---
 
 
