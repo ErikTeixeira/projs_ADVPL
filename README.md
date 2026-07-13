@@ -34,6 +34,17 @@
 
 ---
 
+### Rotinas do Protheus
+
+- Em qualquer tela, pressione **Shift + F6** para descobrir a rotina (ex.: `MATA030`).
+- Saber a rotina é essencial para encontrar **Pontos de Entrada**, documentação, fazer **debug** e pesquisar soluções.
+- Lista de diversas rotinas:
+  - https://tecnologia.bynem.com.br/rotinas-protheus/
+
+**Exemplos:** `MATA010`, `MATA020`, `MATA030`, `MATA103`, `MATA410`, `FINA040`
+
+---
+
 ### Operadores Lógicos
 Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
 
@@ -59,12 +70,22 @@ Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
 - **TGet:cF3**
   - **Consulta padrão** - busca automática na tabela do protheus, coloca `SA1` e aparece todos os clientes para escolher
 
+- **Criação de Módulos Específicos no Protheus** - https://sempreju.com.br/criacao-de-modulos-especificos-no-protheus/
+  - [Criar módulos no protheus](annots/criar_mod_add_font_menu/criar_modulo.md)
+
+- **Adicionar uma rotina em um Menu do Protheus** - https://terminaldeinformacao.com/2023/05/31/como-adicionar-uma-rotina-em-um-menu-do-protheus/
+
+- **Mudar o logo do sistema** - https://sempreju.com.br/como-mudar-o-logo-do-protheus/
+
+- **Ponto de entrada ao acessar o sistema** - https://sempreju.com.br/executando-rotinas-ao-abrir-um-modulo-afterlogin-advpl/
+
+- **Retornar datas por extenso** - https://sempreju.com.br/datas-por-extenso-no-protheus/
+
+- **Barras de progresso** - https://sempreju.com.br/como-fazer-barras-de-progresso-no-advpl/
+
 ---
 
-assisti ate o #F027 Criando caixa de texto TGet - Parte 1
-
-
-e assisti - #F034 Criando um rótulo TSay
+estou no - #F038 Adicionando Fonte ao Menu
 
 
 
