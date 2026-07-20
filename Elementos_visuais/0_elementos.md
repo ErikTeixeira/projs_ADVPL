@@ -164,3 +164,8 @@ Cria um botão para executar uma ação ao ser clicado.
 ---
 
 
+### TBitmap  - [TBitmap](imagens_na_tela/tBitmap.md) 
+
+Exibe uma imagem no objeto
+- - Criado com `TBitmap:New()` ou `TBitmap:Create()`
+- Esta classe não suporta imagens no formato BMP e JPG com resolução de 24 bits. Caso haja necessidade de utilizar a resolução de 24 bits, use o formato PNG.
