@@ -1,0 +1,63 @@
+#include "totvs.ch"
+#include "protheus.ch"
+#include "rwmake.ch"
+#include "font.ch"
+#include "colors.ch"
+
+
+User Function execFunc()
+
+    Private cNomeFun := space(30)
+
+    SetPrvt( "oFont1", "oFont2", "oFont3", "oDlg1", "oSay1", "oSay2", "oSay3", "oSay4", "oSay5")
+    SetPrvt( "oGet1", "oBtn1", "oBtn2" )
+
+
+    oDlg1   := TDialog():New(0, 0, 500, 500, 'Executar Função', , ,.F. , , , /*nCorFundo*/, , , .T.)
+
+    oSay1    := TSay():New(05,10,{||'Digite seu fonte sem o U_'},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,200,20)
+    
+    oSay2    := TSay():New(15,10,{||'Se tiver parâmetros, informe entre parênteses'},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,200,20)
+
+
+    oGet1    := TGet():New( 30,10,{|u| IIF(PCount()>0,cNomeFun:=u,cNomeFun) },oDlg,60,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cNomeFun,,,, )
+
+
+    oBtn1 := TButton():New(50,10, "Executar", oDlg1, { || IIF(!Empty(cNomeFun), fMontaFun(), Alert("Operação não permitida")) }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+    oBtn2 := TButton():New(50,100, "Cancelar", oDlg1, { || oDlg1:End() }, 60, 15,,,.F., .T., .F.,, .F.,,, .F.)
+
+
+    oSay3    := TSay():New(75,10,{||'Exemplos:'},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,200,20)
+
+    oSay4    := TSay():New(85,10,{||'Soma(2,3)'},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,200,20)
+
+
+    oDlg1:Activate(,,,.T.)
+Return 
+
+
+Static Function fMontaFun()
+
+    cNomeFun := Alltrim(cNomeFun)
+    xRes     := Nil
+
+    If !("(" $ cNomeFun) .OR. !(")" $ cNomeFun)
+        Alert("Você precisa colocar os parênteses, ex: Soma(2,3)")
+        cNomeFun := Space(30)
+        oGet1:Refresh()
+        Return xRes
+    EndIf
+
+    cNomeFun := "U_" + Alltrim(cNomeFun)
+
+    If !ExistFunc(cNomeFun)
+        Alert("Função não encontrada")
+        cNomeFun := Space(30)
+        oGet1:Refresh()
+        Return xRes
+    else
+        xRes := cNomeFun
+    EndIf
+
+Return &xRes

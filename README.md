@@ -57,6 +57,23 @@ Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
 
 ---
 
+### Macro (`&`) e `ExistFunc()`
+
+O **Macro (`&`)** executa uma instrução armazenada em uma string. Como pode gerar erro caso a função não exista, utilize `ExistFunc()` antes de executá-la.
+
+```advpl
+If ExistFunc("U_Soma")
+    &("U_Soma(2,3)")
+Else
+    Alert("Função não encontrada")
+EndIf
+```
+
+> Sempre valide a existência da função antes de utilizar o Macro (`&`) para evitar erros de execução.
+> `ExistFunc()` retorna `.T.` se a função existir e `.F.` caso contrário.
+
+---
+
 ### IMPORTANTE
 
 ``Private lCheck1, lCheck2, lCheck3 := .F.``
@@ -85,7 +102,7 @@ Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
 
 ---
 
-estou no - #F038 Adicionando Fonte ao Menu
+estou no - #F040 Entendendo o Código Fonte e o Funcionamento
 
 
 
