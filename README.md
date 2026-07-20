@@ -54,6 +54,67 @@ Os operadores utilizados em AdvPl para operações e avaliações lógicas são:
 .Or.	    | OU lógico
 .Not. ou !	| NÃO lógico
 
+---
+
+## Operador `$` no AdvPL - **está contido**
+
+- O operador **`$`** verifica se um valor **está contido** em outro.
+- Sintaxe:
+  ```advpl
+  valor1 $ valor2
+  ```
+- Exemplo:
+  ```advpl
+  IF M->B1_GRUPO $ "0010/0011/0012"
+  ```
+- O `IF` será **verdadeiro (.T.)** se `M->B1_GRUPO` for encontrado dentro da string.
+- Exemplo: `"0010"` → `.T.`
+- Exemplo: `"0013"` → `.F.`
+- **Atenção:** o `$` procura **trechos de texto (substring)**, não itens de uma lista.
+- Para evitar falsos positivos, use delimitadores:
+  ```advpl
+  IF "/" + M->B1_GRUPO + "/" $ "/0010/0011/0012/"
+  ```
+
+---
+
+### As variáveis internas do Protheus 'INCLUI' e 'ALTERA'
+
+Verifica se está incluindo ou alterando
+- Utilizada em pontos de entrada
+
+```advpl
+User Function A010TOK()
+
+    Local lRet := .T.
+
+    If Inclui
+        MsgInfo("Você Incluiu um produto")
+    else
+        MsgInfo("Você Alterou um produto")
+    endif
+
+Return lRet
+```
+
+---
+
+### Campos em Memória (`M->`)
+
+- `M->` acessa o **valor que está em memória**, antes de ser gravado no banco.
+- É usado quando o usuário está **digitando ou alterando** um cadastro.
+- Permite validar ou consultar o valor informado em tempo real.
+- Sintaxe:
+  ```advpl
+  M->B1_DESC
+  ```
+- Exemplo:
+  ```advpl
+  If Empty(M->B1_DESC)
+      MsgStop("Informe a descrição.")
+  EndIf
+  ```
+- Após a gravação do registro, o valor passa a estar na tabela (`SB1->B1_DESC`).
 
 ---
 
